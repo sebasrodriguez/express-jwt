@@ -270,4 +270,23 @@ describe('work tests', function () {
       assert.equal('bar', req.user.foo);
     });
   });
+
+  // it('should add authorization renewed header to response', function() {
+  //   var secret = 'shhhhhh';
+  //   var token = jwt.sign({foo: 'bar'}, secret);
+
+  //   req.headers = {};
+  //   req.headers.authorization = 'Bearer ' + token;
+  //   res.headers = {};
+  //   res.setHeader = function (key, value) {
+  //     res.headers[key] = value;
+  //   }
+
+  //   var middleware = expressjwt({secret: secret, expiresIn: '666m', slidingExpiration: true});
+
+  //   middleware(req, res, function(err) {
+  //     var containsHeader = res.headers["Authorization-Renewed"] ? true : false;
+  //     asert(containsHeader === true);
+  //   });
+  // });
 });

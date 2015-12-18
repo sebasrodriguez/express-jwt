@@ -1,6 +1,6 @@
 # express-jwt
 
-[![Build](https://travis-ci.org/auth0/express-jwt.png)](http://travis-ci.org/auth0/express-jwt)
+[![Build](https://travis-ci.org/sebasrodriguez/express-jwt.png)](http://travis-ci.org/sebasrodriguez/express-jwt)
 
 Middleware that validates JsonWebTokens and sets `req.user`.
 
@@ -10,7 +10,7 @@ often issued using OpenID Connect.
 
 ## Install
 
-    $ npm install express-jwt
+    $ npm install express-jwt-2
 
 ## Usage
 
@@ -158,6 +158,17 @@ app.get('/protected',
   });
 ```
 
+### Sliding expiration
+If you need sliding expiration of the token you can pass in the options when setting up the middleware a configuration like this:
+
+```javascript
+app.use(jwt({ secret: 'secret-phrase', expiresIn: '1h', slidingExpiration: true }));
+```
+
+This will create a new response header called by default Authorization-Renewed which contains the updated token with the new expiration.
+
+If you want a custom header you can pass it in the options variable updatedTokenHeader.
+
 ### Error handling
 
 The default behavior is to throw an error when the token is invalid, so you can add your custom logic to manage unauthorized access as follows:
@@ -183,18 +194,18 @@ can do this by using the option _credentialsRequired_:
 
 - [jsonwebtoken](https://github.com/auth0/node-jsonwebtoken) — JSON Web Token sign and verification
 
-## Issue Reporting
-
-If you have found a bug or if you have a feature request, please report them at this repository issues section. Please do not report security vulnerabilities on the public GitHub issue tracker. The [Responsible Disclosure Program](https://auth0.com/whitehat) details the procedure for disclosing security issues.
-
 ## Tests
 
     $ npm install
     $ npm test
 
 ## Contributors
-Check them out [here](https://github.com/auth0/express-jwt/graphs/contributors)
+Check them out [here](https://github.com/sebasrodriguez/express-jwt/graphs/contributors)
 
 ## License
 
 This project is licensed under the MIT license. See the [LICENSE](LICENSE.txt) file for more info.
+
+## Others
+
+Thanks to auth0 for making this awesome library.
