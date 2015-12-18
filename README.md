@@ -8,6 +8,8 @@ This module lets you authenticate HTTP requests using JWT tokens in your Node.js
 applications.  JWTs are typically used to protect API endpoints, and are
 often issued using OpenID Connect.
 
+This project is a fork of auth0/express-jwt and it adds the sliding expiration feature.
+
 ## Install
 
     $ npm install express-jwt-2
